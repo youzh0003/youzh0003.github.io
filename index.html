@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yzyy — Android apps</title>
+<meta name="description" content="yzyy builds small, focused Android apps. No accounts required. Browse the apps on Google Play and read each app's privacy policy.">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="https://youzh0003.github.io/">
+<link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yzyy — Android apps">
+<meta property="og:description" content="Small, focused Android apps. No accounts required.">
+<meta property="og:url" content="https://youzh0003.github.io/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f8f9;
+    --surface: #ffffff;
+    --border: #dfe3e8;
+    --ink: #14181d;
+    --ink-soft: #545c66;
+    --ink-faint: #676f79;
+    --accent: #0f6d5f;
+    --accent-ink: #0b5449;
+    --focus: #0f6d5f;
+    --shadow: 0 1px 2px rgba(20, 24, 29, .05), 0 6px 20px rgba(20, 24, 29, .05);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #101316;
+      --surface: #191d22;
+      --border: #2c333a;
+      --ink: #eef1f4;
+      --ink-soft: #b3bcc6;
+      --ink-faint: #949ea9;
+      --accent: #59c9b4;
+      --accent-ink: #7bd8c6;
+      --focus: #59c9b4;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 20px rgba(0, 0, 0, .3);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #101316;
+    --surface: #191d22;
+    --border: #2c333a;
+    --ink: #eef1f4;
+    --ink-soft: #b3bcc6;
+    --ink-faint: #949ea9;
+    --accent: #59c9b4;
+    --accent-ink: #7bd8c6;
+    --focus: #59c9b4;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 6px 20px rgba(0, 0, 0, .3);
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+
+  a { color: var(--accent-ink); }
+  a:focus-visible,
+  .card a:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* ---------- header ---------- */
+
+  header.site {
+    padding: 56px 0 32px;
+  }
+  .wordmark {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .wordmark .glyph {
+    width: 40px;
+    height: 40px;
+    flex: none;
+    border-radius: 11px;
+    background: var(--accent);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -.02em;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .wordmark .glyph { color: #08211c; }
+  }
+  :root[data-theme="dark"] .wordmark .glyph { color: #08211c; }
+
+  h1 {
+    margin: 0;
+    font-size: 30px;
+    line-height: 1.15;
+    letter-spacing: -.025em;
+    font-weight: 700;
+  }
+  .tagline {
+    margin: 16px 0 0;
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  /* ---------- app grid ---------- */
+
+  main { padding-bottom: 8px; }
+
+  h2.section {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 40px 0 16px;
+  }
+
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 640px) {
+    .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .card img.icon {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    display: block;
+  }
+
+  .card .body { min-width: 0; }
+
+  .card h3 {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.3;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    overflow-wrap: break-word;
+  }
+  .card p {
+    margin: 6px 0 0;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    overflow-wrap: break-word;
+  }
+
+  .links {
+    margin: 12px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 14px;
+    font-size: 14px;
+  }
+  .links a { font-weight: 500; }
+  .links .play {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--accent-ink);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 13px 6px 11px;
+    background: var(--bg);
+  }
+  .links .play:hover { border-color: var(--accent); }
+  .links .play svg { flex: none; }
+
+  /* ---------- footer ---------- */
+
+  footer.site {
+    margin-top: 48px;
+    border-top: 1px solid var(--border);
+    padding: 28px 0 56px;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  footer.site p { margin: 0 0 8px; }
+  footer.site .meta {
+    margin-top: 18px;
+    font-size: 13.5px;
+    color: var(--ink-faint);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="site">
+    <div class="wordmark">
+      <span class="glyph" aria-hidden="true">y</span>
+      <h1>yzyy</h1>
+    </div>
+    <p class="tagline">Small, focused Android apps. No accounts required — you download the app and it works.</p>
+  </header>
+
+  <main>
+    <h2 class="section">Apps on Google Play</h2>
+
+    <ul class="grid">
+
+      <li class="card">
+        <img class="icon" src="icons/kids-flashcards.png" width="64" height="64" alt="Kids Flashcards app icon: a fan of picture cards on a purple background" loading="lazy">
+        <div class="body">
+          <h3>Kids Flashcards: 13 Languages</h3>
+          <p>Toddler &amp; preschool flashcards: ABC, 123, colors, shapes, animals &amp; more</p>
+          <div class="links">
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.yzy.kidsflashcards">
+              <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M.6.4a1.4 1.4 0 0 0-.6 1.2v12.8c0 .5.2 1 .6 1.2l7-7.6L.6.4Zm8 6.9L10.8 5 2.3.2a1.4 1.4 0 0 0-.7-.2L8.6 7.3Zm0 1.4L1.6 16c.2 0 .5-.1.7-.2L10.8 11 8.6 8.7Zm3.2-3L13.4 7c.8.5.8 1.6 0 2l-1.6 1L9.4 8l2.4-2.3Z"/></svg>
+              Google&nbsp;Play
+            </a>
+            <a href="https://youzh0003.github.io/privacy-policy/">Privacy policy</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="icons/location-timeline-private.png" width="64" height="64" alt="My Location Timeline app icon: a green disc with a route line and three stops" loading="lazy">
+        <div class="body">
+          <h3>My Location Timeline</h3>
+          <p>A private, automatic diary of where you go — stored only on your phone.</p>
+          <div class="links">
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.yzy.locationtimelineprivate">
+              <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M.6.4a1.4 1.4 0 0 0-.6 1.2v12.8c0 .5.2 1 .6 1.2l7-7.6L.6.4Zm8 6.9L10.8 5 2.3.2a1.4 1.4 0 0 0-.7-.2L8.6 7.3Zm0 1.4L1.6 16c.2 0 .5-.1.7-.2L10.8 11 8.6 8.7Zm3.2-3L13.4 7c.8.5.8 1.6 0 2l-1.6 1L9.4 8l2.4-2.3Z"/></svg>
+              Google&nbsp;Play
+            </a>
+            <a href="https://youzh0003.github.io/privacy-policy/location-timeline-private.html">Privacy policy</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="icons/offline-pdf-toolkit.png" width="64" height="64" alt="Offline PDF Toolkit app icon: a white page marked PDF with a struck-through cloud, on teal" loading="lazy">
+        <div class="body">
+          <h3>Offline PDF Toolkit</h3>
+          <p>Merge, split and protect PDFs offline. Compress and batch with Pro. No uploads.</p>
+          <div class="links">
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.yzy.offlinepdftoolkit">
+              <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M.6.4a1.4 1.4 0 0 0-.6 1.2v12.8c0 .5.2 1 .6 1.2l7-7.6L.6.4Zm8 6.9L10.8 5 2.3.2a1.4 1.4 0 0 0-.7-.2L8.6 7.3Zm0 1.4L1.6 16c.2 0 .5-.1.7-.2L10.8 11 8.6 8.7Zm3.2-3L13.4 7c.8.5.8 1.6 0 2l-1.6 1L9.4 8l2.4-2.3Z"/></svg>
+              Google&nbsp;Play
+            </a>
+            <a href="https://youzh0003.github.io/privacy-policy/offline-pdf-toolkit.html">Privacy policy</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="icons/sg-transit-now.png" width="64" height="64" alt="SG Bus Arrival &amp; MRT Times app icon: a bus and an MRT train in a Singapore street" loading="lazy">
+        <div class="body">
+          <h3>SG Bus Arrival &amp; MRT Times</h3>
+          <p>Singapore bus arrival &amp; bus timing estimates. MRT first &amp; last train times.</p>
+          <div class="links">
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.sgtransitnow.app">
+              <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M.6.4a1.4 1.4 0 0 0-.6 1.2v12.8c0 .5.2 1 .6 1.2l7-7.6L.6.4Zm8 6.9L10.8 5 2.3.2a1.4 1.4 0 0 0-.7-.2L8.6 7.3Zm0 1.4L1.6 16c.2 0 .5-.1.7-.2L10.8 11 8.6 8.7Zm3.2-3L13.4 7c.8.5.8 1.6 0 2l-1.6 1L9.4 8l2.4-2.3Z"/></svg>
+              Google&nbsp;Play
+            </a>
+            <a href="https://youzh0003.github.io/privacy-policy/sg-bus-easy.html">Privacy policy</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="icons/sg-rain-now.png" width="64" height="64" alt="SG Rain Now app icon: a cat sitting under a shophouse eave against a bright sky" loading="lazy">
+        <div class="body">
+          <h3>SG Rain Now: Singapore Weather</h3>
+          <p>SG weather: Singapore rain forecast, rain alerts, rain map, 4-day outlook.</p>
+          <div class="links">
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.yzy.sgrainnow">
+              <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M.6.4a1.4 1.4 0 0 0-.6 1.2v12.8c0 .5.2 1 .6 1.2l7-7.6L.6.4Zm8 6.9L10.8 5 2.3.2a1.4 1.4 0 0 0-.7-.2L8.6 7.3Zm0 1.4L1.6 16c.2 0 .5-.1.7-.2L10.8 11 8.6 8.7Zm3.2-3L13.4 7c.8.5.8 1.6 0 2l-1.6 1L9.4 8l2.4-2.3Z"/></svg>
+              Google&nbsp;Play
+            </a>
+            <a href="https://youzh0003.github.io/privacy-policy/sg-rain-now.html">Privacy policy</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="card">
+        <img class="icon" src="icons/snap-to-calendar.png" width="64" height="64" alt="Snap to Calendar app icon: a smiling cat in a postal cap on an orange background" loading="lazy">
+        <div class="body">
+          <h3>Snap to Calendar: Photo Event</h3>
+          <p>Screenshot to calendar event or to-do. Images stay on your phone. No ads.</p>
+          <div class="links">
+            <a class="play" href="https://play.google.com/store/apps/details?id=com.yzy.snaptocalendar">
+              <svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M.6.4a1.4 1.4 0 0 0-.6 1.2v12.8c0 .5.2 1 .6 1.2l7-7.6L.6.4Zm8 6.9L10.8 5 2.3.2a1.4 1.4 0 0 0-.7-.2L8.6 7.3Zm0 1.4L1.6 16c.2 0 .5-.1.7-.2L10.8 11 8.6 8.7Zm3.2-3L13.4 7c.8.5.8 1.6 0 2l-1.6 1L9.4 8l2.4-2.3Z"/></svg>
+              Google&nbsp;Play
+            </a>
+            <a href="https://youzh0003.github.io/privacy-policy/snap-to-calendar.html">Privacy policy</a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </main>
+
+  <footer class="site">
+    <h2 class="section">Contact</h2>
+    <p>Questions, bug reports and app support: <a href="mailto:yzyapps99@gmail.com">yzyapps99@gmail.com</a></p>
+    <p><a href="https://youzh0003.github.io/privacy-policy/">Privacy policies</a> for every app.</p>
+    <p class="meta">© 2026 yzyy</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
