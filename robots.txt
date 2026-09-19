@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://youzh0003.github.io/sitemap.xml
